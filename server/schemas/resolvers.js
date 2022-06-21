@@ -5,6 +5,14 @@ const resolvers = {
       const params = username ? { username } : {};
       return Thought.find(params).sort({ createdAt: -1 });
     },
+    Mutation: {
+      addUser: async (parent, args) => {
+        const user = await User.create(args);
+
+        return user;
+      },
+      login: async () => {},
+    },
   },
 };
 
